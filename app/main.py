@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import get_settings
 from app.llm import build_llm
 from app.rag import DocumentStore
-from app.routers import chat, documents, health
+from app.routers import chat, documents, health, root
 
 
 def create_app() -> FastAPI:
@@ -23,6 +23,7 @@ def create_app() -> FastAPI:
         allow_headers=["Content-Type", "X-API-Key"],
     )
 
+    app.include_router(root.router)
     app.include_router(health.router)
     app.include_router(documents.router)
     app.include_router(chat.router)
