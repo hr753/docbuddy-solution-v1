@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+CLAUDE.local.md
+.claude/settings.local.json
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
