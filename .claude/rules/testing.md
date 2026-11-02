@@ -10,7 +10,7 @@ For each endpoint, write at least:
 1. **Happy path** — valid request returns the right status code AND the right body shape.
 2. **Validation** — one test per constraint: empty string, too long, out-of-range number,
    unknown extra field. Each must return 422.
-3. **Auth** — missing key → 401, wrong key → 401 (skip only for `GET /health`).
+3. **Auth** — missing key → 401, wrong key → 401 (skip only for `GET /health` and `GET /`).
 4. **Edge case** — e.g. chat with no documents added yet, `top_k` larger than the number of docs.
 
 ## How to write them

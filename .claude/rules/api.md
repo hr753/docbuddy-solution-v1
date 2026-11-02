@@ -8,7 +8,8 @@ paths:
 ## Endpoints
 - Every route has an explicit `response_model` and a correct `status_code`
   (201 for create, 200 for reads/actions).
-- Every route except `GET /health` depends on `require_api_key`.
+- Every route except `GET /health` and `GET /` depends on `require_api_key`.
+  `GET /` is public HTML for browsers, so it has no `response_model`.
 - Route handlers stay thin: validate input, call a function in `app/rag.py` or
   `app/llm.py`, return a model. No business logic in `main.py`.
 - Use `async def` handlers. Never call blocking functions (`time.sleep`,
